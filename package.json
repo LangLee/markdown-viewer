@@ -1,0 +1,16 @@
+{
+  "name": "markdown-viewer",
+  "version": "1.0.0",
+  "description": "文档查看器",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "highlight.js": "^11.11.1",
+    "marked": "^15.0.7"
+  }
+}

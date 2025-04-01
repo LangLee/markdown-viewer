@@ -1,0 +1,194 @@
+/* 基础样式 */
+html {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: #f8fafc;
+  padding: 0;
+  margin: 0;
+}
+body {
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+}
+
+/* 布局样式 */
+.container {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* 侧边栏样式 */
+.sidebar {
+  width: 18rem;
+  background: white;
+  border-right: 1px solid #e2e8f0;
+  height: 100vh;
+  position: fixed;
+  z-index: 100;
+  transition: transform 0.3s ease;
+}
+
+.sidebar-container {
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  background: white;
+  overflow-y: auto;
+}
+/* 内容区域 */
+.content {
+  flex: 1;
+  margin-left: 20rem;
+  padding: 2rem;
+  max-width: calc(100% - 20rem);
+}
+
+/* 移动端菜单按钮 */
+.mobile-menu-button {
+  display: none;
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 200;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  line-height: 0;
+}
+
+/* 导航菜单样式 */
+.sidebar-menu {
+  list-style: none;
+  padding: 0 0 0 1rem;
+  margin: 0;
+}
+
+.sidebar-menu li {
+  margin: 0.25rem 0;
+}
+
+.sidebar-menu a,
+.sidebar-menu summary {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  color: #4b5563;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.sidebar-menu a:hover,
+.sidebar-menu summary:hover {
+  background: #f3f4f6;
+}
+
+.sidebar-menu .active > a,
+.sidebar-menu .active > summary {
+  background: #ebf5ff;
+  color: #3b82f6;
+  font-weight: 500;
+}
+
+/* Markdown内容样式 */
+.markdown-body {
+  background: white;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* 空状态样式 */
+.empty-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+  text-align: center;
+  padding: 2rem;
+}
+
+.empty-image {
+  width: 10rem;
+  height: 10rem;
+  margin-bottom: 1rem;
+  opacity: 0.6;
+}
+
+.empty-title {
+  font-size: 1.25rem;
+  color: #555;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.empty-description {
+  color: #777;
+  max-width: 400px;
+  margin: 0 auto 1.5rem;
+  line-height: 1.5;
+}
+
+.empty-button-secondary:hover {
+  background-color: #f5f5f5;
+}
+
+/* 加载状态 */
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.loading-spinner {
+  width: 3rem;
+  height: 3rem;
+  border: 3px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  border-top-color: #4285f4;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+/* 移动端样式 */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    transform: translateX(-100%);
+    background-color: rgba(0, 0, 0, 0.1);
+    border: none;
+  }
+  .sidebar-container {
+    padding-top: 3rem;
+    width: 80%;
+  }
+  .sidebar.is-open {
+    transform: translateX(0);
+  }
+
+  .mobile-menu-button {
+    display: block;
+  }
+
+  .content {
+    margin-left: 0;
+    padding: 0;
+    max-width: 100%;
+    overflow: hidden;
+  }
+}
